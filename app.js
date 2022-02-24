@@ -1,43 +1,43 @@
-const word = ["s", "i", "l", "v", "a"];
+const word = ["z", "j", "o", "e", "n"];
 const msg = document.querySelector(".msg");
 let guess = [];
 let score = 0;
 let rowNr = 0;
 let row;
+
 function buttonPress(key) {
   row = document
     .querySelectorAll(`.row`)
     [rowNr].querySelectorAll(`.row .block`);
-  if (key != "del") {
+  if (key != "del" && key != "enter") {
     if (guess.length < 5) {
       guess.push(key.innerHTML);
-      console.log(guess);
       addKeyToGrid(key.innerHTML, rowNr);
-      if (guess.length > 4) {
-        rowNr += 1;
-        guess = [];
-        console.log(guess);
-      }
+      console.log(guess);
     }
-  } else {
-    deleteLetter(rowNr);
+  } else if (key == "del") {
+    deleteKey(rowNr);
+  } else if (key == "enter" && guess.length == 5) {
+    checkKey(rowNr);
+    rowNr += 1;
+    guess = [];
   }
 }
 
-//delete letter
-function deleteLetter(rowNr) {
+//delete Key
+function deleteKey(rowNr) {
   guess.splice(-1);
   row[guess.length].innerHTML = "";
 }
-
+//add key to grid
 function addKeyToGrid(key, rowNr) {
   row[guess.length - 1].innerHTML += key;
 
-  if (guess.length == 5) {
+  if (key == "enter" && guess.length == 5) {
     checkKey(rowNr);
   }
 }
-
+//Check if keys are correct
 function checkKey(rowNr) {
   for (let i = 0; i < word.length; i++) {
     if (guess[i] == word[i]) {
@@ -56,6 +56,7 @@ function checkKey(rowNr) {
         [i].classList.add("red");
     }
     if (score == 5) {
+      msg.style.display = "flex";
       msg.innerHTML += "<h1>U GUESSED THE WORD!</h1>";
     }
     if (score < 5 && i == 4) {

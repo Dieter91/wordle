@@ -13,10 +13,15 @@ body {
 }
 
 .msg {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: white;
+  display: none;
 }
 
 .green {

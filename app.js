@@ -1,28 +1,37 @@
-const word = ["c", "u", "t", "i", "e"];
+const word = ["s", "i", "l", "v", "a"];
 const msg = document.querySelector(".msg");
 let guess = [];
 let score = 0;
 let rowNr = 0;
-const row = document
-  .querySelectorAll(`.row`)
-  [rowNr].querySelectorAll(`.row .block`);
+let row;
 function buttonPress(key) {
-  if (guess.length < 5) {
-    guess.push(key.innerHTML);
-    console.log(guess);
-    addKeyToGrid(key.innerHTML, rowNr);
-    if (guess.length > 4) {
-      rowNr += 1;
-      guess = [];
+  row = document
+    .querySelectorAll(`.row`)
+    [rowNr].querySelectorAll(`.row .block`);
+  if (key != "del") {
+    if (guess.length < 5) {
+      guess.push(key.innerHTML);
       console.log(guess);
+      addKeyToGrid(key.innerHTML, rowNr);
+      if (guess.length > 4) {
+        rowNr += 1;
+        guess = [];
+        console.log(guess);
+      }
     }
+  } else {
+    deleteLetter(rowNr);
   }
 }
 
+//delete letter
+function deleteLetter(rowNr) {
+  guess.splice(-1);
+  row[guess.length].innerHTML = "";
+}
+
 function addKeyToGrid(key, rowNr) {
-  document.querySelectorAll(`.row`)[rowNr].querySelectorAll(`.row .block`)[
-    guess.length - 1
-  ].innerHTML += key;
+  row[guess.length - 1].innerHTML += key;
 
   if (guess.length == 5) {
     checkKey(rowNr);

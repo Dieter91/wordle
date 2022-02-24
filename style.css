@@ -1,7 +1,15 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
 .row {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 
 .msg {
@@ -20,14 +28,38 @@
 }
 
 button {
-  width: 4rem;
-  height: 4rem;
+  width: 10%;
+  height: 100%;
 }
 
 .block {
   border: 1px solid gray;
-  width: 8rem;
-  height: 8rem;
+  width: 20%;
   font-size: 3rem;
   text-align: center;
+}
+
+.container {
+  height: 85vh;
+  width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid {
+  height: calc(100% / 5);
+}
+
+.grid-container {
+  height: 75%;
+}
+
+.keyboard-container {
+  height: 20%;
+}
+
+.keyboard {
+  height: calc(100% / 3);
 }

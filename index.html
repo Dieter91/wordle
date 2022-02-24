@@ -10,73 +10,80 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="block 1"></div>
-        <div class="block 2"></div>
-        <div class="block 3"></div>
-        <div class="block 4"></div>
-        <div class="block 5"></div>
-    </div>
-    <div class="row">
-        <div class="block 1"></div>
-        <div class="block 2"></div>
-        <div class="block 3"></div>
-        <div class="block 4"></div>
-        <div class="block 5"></div>
-    </div>
-    <div class="row">
-        <div class="block 1"></div>
-        <div class="block 2"></div>
-        <div class="block 3"></div>
-        <div class="block 4"></div>
-        <div class="block 5"></div>
-    </div>
-    <div class="row">
-        <div class="block 1"></div>
-        <div class="block 2"></div>
-        <div class="block 3"></div>
-        <div class="block 4"></div>
-        <div class="block 5"></div>
-    </div>
-    <div class="row">
-        <div class="block 1"></div>
-        <div class="block 2"></div>
-        <div class="block 3"></div>
-        <div class="block 4"></div>
-        <div class="block 5"></div>
-    </div>
-    <div class="msg"></div>
-    <div class="row">
-        <button id="q" onclick="buttonPress(q)">q</button>
-        <button id="w" onclick="buttonPress(w)">w</button>
-        <button id="e" onclick="buttonPress(e)">e</button>
-        <button id="r" onclick="buttonPress(r)">r</button>
-        <button id="t" onclick="buttonPress(t)">t</button>
-        <button id="y" onclick="buttonPress(y)">y</button>
-        <button id="u" onclick="buttonPress(u)">u</button>
-        <button id="i" onclick="buttonPress(i)">i</button>
-        <button id="o" onclick="buttonPress(o)">o</button>
-        <button id="p" onclick="buttonPress(p)">p</button>
-    </div>
-    <div class="row">
-        <button id="a" onclick="buttonPress(a)">a</button>
-        <button id="s" onclick="buttonPress(s)">s</button>
-        <button id="d" onclick="buttonPress(d)">d</button>
-        <button id="f" onclick="buttonPress(f)">f</button>
-        <button id="g" onclick="buttonPress(g)">g</button>
-        <button id="h" onclick="buttonPress(h)">h</button>
-        <button id="j" onclick="buttonPress(j)">j</button>
-        <button id="k" onclick="buttonPress(k)">k</button>
-        <button id="l" onclick="buttonPress(l)">l</button>
-    </div>
-    <div class="row">
-        <button id="z" onclick="buttonPress(z)">z</button>
-        <button id="x" onclick="buttonPress(x)">x</button>
-        <button id="c" onclick="buttonPress(c)">c</button>
-        <button id="v" onclick="buttonPress(v)">v</button>
-        <button id="b" onclick="buttonPress(b)">b</button>
-        <button id="n" onclick="buttonPress(n)">n</button>
-        <button id="m" onclick="buttonPress(m)">m</button>
+    <div class="container">
+        <div class="grid-container">
+            <div class="row grid">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row grid">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row grid">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row grid">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row grid">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+        </div>
+        <div class="msg"></div>
+        <div class="keyboard-container">
+            <div class="row keyboard">
+                <button id="q" onclick="buttonPress(q)">q</button>
+                <button id="w" onclick="buttonPress(w)">w</button>
+                <button id="e" onclick="buttonPress(e)">e</button>
+                <button id="r" onclick="buttonPress(r)">r</button>
+                <button id="t" onclick="buttonPress(t)">t</button>
+                <button id="y" onclick="buttonPress(y)">y</button>
+                <button id="u" onclick="buttonPress(u)">u</button>
+                <button id="i" onclick="buttonPress(i)">i</button>
+                <button id="o" onclick="buttonPress(o)">o</button>
+                <button id="p" onclick="buttonPress(p)">p</button>
+            </div>
+            <div class="row keyboard">
+                <button id="a" onclick="buttonPress(a)">a</button>
+                <button id="s" onclick="buttonPress(s)">s</button>
+                <button id="d" onclick="buttonPress(d)">d</button>
+                <button id="f" onclick="buttonPress(f)">f</button>
+                <button id="g" onclick="buttonPress(g)">g</button>
+                <button id="h" onclick="buttonPress(h)">h</button>
+                <button id="j" onclick="buttonPress(j)">j</button>
+                <button id="k" onclick="buttonPress(k)">k</button>
+                <button id="l" onclick="buttonPress(l)">l</button>
+            </div>
+            <div class="row keyboard">
+                <button id="z" onclick="buttonPress(z)">z</button>
+                <button id="x" onclick="buttonPress(x)">x</button>
+                <button id="c" onclick="buttonPress(c)">c</button>
+                <button id="v" onclick="buttonPress(v)">v</button>
+                <button id="b" onclick="buttonPress(b)">b</button>
+                <button id="n" onclick="buttonPress(n)">n</button>
+                <button id="m" onclick="buttonPress(m)">m</button>
+                <button id="del" onclick="buttonPress(del)">DELETE</button>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

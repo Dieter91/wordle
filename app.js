@@ -1,4 +1,4 @@
-const word = ["c", "r", "o", "w", "n"];
+const word = ["c", "u", "t", "i", "e"];
 const msg = document.querySelector(".msg");
 let guess = [];
 let score = 0;

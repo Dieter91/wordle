@@ -23,3 +23,11 @@ button {
   width: 4rem;
   height: 4rem;
 }
+
+.block {
+  border: 1px solid gray;
+  width: 8rem;
+  height: 8rem;
+  font-size: 3rem;
+  text-align: center;
+}

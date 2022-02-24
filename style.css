@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+button {
+  width: 4rem;
+  height: 4rem;
+}

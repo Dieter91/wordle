@@ -6,36 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
-    <style>
-        .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-
-        .msg {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .green {
-            background-color: green;
-        }
-
-        .red {
-            background-color: red;
-        }
-
-        button {
-            width: 4rem;
-            height: 4rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="row">
+        <div class="block 1"></div>
+        <div class="block 2"></div>
+        <div class="block 3"></div>
+        <div class="block 4"></div>
+        <div class="block 5"></div>
+    </div>
     <div class="msg"></div>
     <div class="row">
         <button id="q" onclick="buttonPress(q)">q</button>

@@ -6,7 +6,7 @@ let row;
 let block;
 let keyColor;
 const word = targetWords[Math.floor(Math.random() * targetWords.length)];
-console.log(word);
+
 function buttonPress(key) {
   row = document
     .querySelectorAll(`.row`)
@@ -15,7 +15,6 @@ function buttonPress(key) {
     if (guess.length < 5) {
       guess.push(key.innerHTML);
       addKeyToGrid(key.innerHTML, rowNr);
-      console.log(guess);
     }
   } else if (key == "del") {
     deleteKey(rowNr);
@@ -37,7 +36,7 @@ function buttonPress(key) {
         guess = [];
       })
       .catch(function (error) {
-        alert("word doesnt exist");
+        alert("Word doesnt exist! Try again!");
       });
   }
 }
@@ -65,14 +64,12 @@ function checkKey(rowNr) {
     if (word.indexOf(guess[i]) > -1 && guess[i] != word[i]) {
       keyColor.classList.add("yellow");
       block.classList.add("yellow");
-      console.log(word.indexOf(guess[i]));
     }
     if (guess[i] == word[i]) {
       keyColor.classList.add("green");
       block.classList.add("green");
 
       score = score + 1;
-      console.log(score);
     }
     if (guess[i] != word[i]) {
       keyColor.classList.add("red");
@@ -90,7 +87,7 @@ function checkKey(rowNr) {
         location.reload();
       });
     }
-    if (score != 5 && rowNr == 5) {
+    if (score != 5 && rowNr > 4) {
       msg.style.display = "flex";
       msg.innerHTML +=
         "<h1>You have lost... 😭😭😭</h1> <button class='replay'>CLICK HERE TO PLAY AGAIN</button>";

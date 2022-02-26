@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
 }
 body {
   overflow-x: hidden;
@@ -32,8 +35,12 @@ body {
   background-color: red;
 }
 
+.yellow {
+  background-color: yellow;
+}
+
 button {
-  width: 10%;
+  padding: 1rem;
   height: 100%;
 }
 
@@ -54,7 +61,7 @@ button {
 }
 
 .grid {
-  height: calc(100% / 5);
+  height: calc(100% / 6);
 }
 
 .grid-container {
@@ -67,4 +74,19 @@ button {
 
 .keyboard {
   height: calc(100% / 3);
+}
+
+.replay {
+  height: 2rem;
+  background-color: purple;
+  color: white;
+  border: none;
+}
+
+@media screen and (max-width: 760px) {
+  button {
+    width: auto;
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
 }

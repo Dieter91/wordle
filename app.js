@@ -1,33 +1,12 @@
-let word;
 const msg = document.querySelector(".msg");
 let guess = [];
 let score = 0;
 let rowNr = 0;
 let row;
-
-function getWord() {
-  const options = {
-    method: "GET",
-    url: "https://random-words5.p.rapidapi.com/getRandom",
-    params: { wordLength: "5" },
-    headers: {
-      "x-rapidapi-host": "random-words5.p.rapidapi.com",
-      "x-rapidapi-key": "f159d4d5bemsh9c99b9de5d4b8f4p11ceffjsn37218a22100a",
-    },
-  };
-
-  axios
-    .request(options)
-    .then(function (response) {
-      word = response.data.split("");
-      console.log(word);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-}
-
-getWord();
+let block;
+let keyColor;
+const word = targetWords[Math.floor(Math.random() * targetWords.length)];
+console.log(word);
 function buttonPress(key) {
   row = document
     .querySelectorAll(`.row`)
@@ -41,9 +20,25 @@ function buttonPress(key) {
   } else if (key == "del") {
     deleteKey(rowNr);
   } else if (key == "enter" && guess.length == 5) {
-    checkKey(rowNr);
-    rowNr += 1;
-    guess = [];
+    const options = {
+      method: "GET",
+      url: `https://api.dictionaryapi.dev/api/v2/entries/en/${guess.join("")}`,
+      headers: {
+        "x-rapidapi-host": "random-words5.p.rapidapi.com",
+        "x-rapidapi-key": "f159d4d5bemsh9c99b9de5d4b8f4p11ceffjsn37218a22100a",
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        checkKey(rowNr);
+        rowNr += 1;
+        guess = [];
+      })
+      .catch(function (error) {
+        alert("word doesnt exist");
+      });
   }
 }
 
@@ -63,27 +58,25 @@ function addKeyToGrid(key, rowNr) {
 //Check if keys are correct
 function checkKey(rowNr) {
   for (let i = 0; i < word.length; i++) {
-    if (word.indexOf(guess[i]) != -1 && guess[i] != word[i]) {
-      document.querySelector(`#${guess[i]}`).classList.add("yellow");
-      document
-        .querySelectorAll(`.row`)
-        [rowNr].querySelectorAll(`.row .block`)
-        [i].classList.add("yellow");
+    block = document
+      .querySelectorAll(`.row`)
+      [rowNr].querySelectorAll(`.row .block`)[i];
+    keyColor = document.querySelector(`#${guess[i]}`);
+    if (word.indexOf(guess[i]) > -1 && guess[i] != word[i]) {
+      keyColor.classList.add("yellow");
+      block.classList.add("yellow");
+      console.log(word.indexOf(guess[i]));
     }
     if (guess[i] == word[i]) {
-      document.querySelector(`#${guess[i]}`).classList.add("green");
-      document
-        .querySelectorAll(`.row`)
-        [rowNr].querySelectorAll(`.row .block`)
-        [i].classList.add("green");
+      keyColor.classList.add("green");
+      block.classList.add("green");
+
       score = score + 1;
+      console.log(score);
     }
     if (guess[i] != word[i]) {
-      document.querySelector(`#${guess[i]}`).classList.add("red");
-      document
-        .querySelectorAll(`.row`)
-        [rowNr].querySelectorAll(`.row .block`)
-        [i].classList.add("red");
+      keyColor.classList.add("red");
+      block.classList.add("red");
     }
     if (score < 5 && i == 4) {
       msg.innerHTML = "";
